@@ -14,6 +14,10 @@ public class Downloader implements Runnable {
         this.file = file;
     }
 
+    public void setResourceUri(String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+
     public void continueDownloading() throws IOException {
         InputStream inputStream = new URL(resourceUri).openStream();
         FileOutputStream fileOutputStream = new FileOutputStream(file, true);

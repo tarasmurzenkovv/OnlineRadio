@@ -16,16 +16,13 @@ public class Player implements Runnable {
     }
 
     public void stopPlaying(){
+        this.file.delete();
         this.mp3Player.stop();
 
     }
 
     public void pausePlaying(){
         this.mp3Player.stop();
-    }
-
-    public void resumePlaying(){
-
     }
 
     public void switchChannel(String channelUri){

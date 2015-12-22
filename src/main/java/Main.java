@@ -1,7 +1,5 @@
 import java.io.File;
-import java.lang.Exception;import java.lang.String;import java.net.MalformedURLException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.net.MalformedURLException;
 
 public class Main {
     public static void main(String[] args) throws MalformedURLException {
@@ -9,16 +7,13 @@ public class Main {
             File file = new File("di.mp3");
             String trance = "http://pub6.di.fm/di_trance";
             String house = "http://pub4.di.fm/di_soulfulhouse";
-            Downloader downloader = new Downloader(house, file);
+            String psy = "http://pub6.di.fm/di_progressivepsy";
+            Downloader downloader = new Downloader(trance, file);
             Player player = new Player(file);
-            ExecutorService pool = Executors.newFixedThreadPool(2);
 
-            boolean hasFinished = downloader.buffer();
-            
-            if (hasFinished) {
-                pool.submit(player);
-                pool.submit(downloader);
-            }
+            Radio radio = new Radio(downloader,player);
+
+            radio.control();
 
         } catch (Exception e) {
             e.printStackTrace();
