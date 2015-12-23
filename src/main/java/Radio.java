@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class Radio {
     private Downloader downloader;
-    private Player player;
+    private Mp3Player mp3Player;
     private ExecutorService pool;
     private int currentUriIndex;
     private final String[] uris = new String[]
@@ -13,14 +13,14 @@ public class Radio {
                     , "http://pub4.di.fm/di_soulfulhouse",
                     "http://pub6.di.fm/di_progressivepsy"};
 
-    public Radio(Downloader downloader, Player player) {
+    public Radio(Downloader downloader, Mp3Player mp3Player) {
         this.downloader = downloader;
-        this.player = player;
+        this.mp3Player = mp3Player;
     }
 
     private void stopPlaying() {
         pool.shutdown();
-        player.stopPlaying();
+        mp3Player.stopPlaying();
     }
 
     private void play() {
@@ -32,7 +32,7 @@ public class Radio {
             e.printStackTrace();
         }
         if (hasFinished) {
-            pool.submit(player);
+            pool.submit(mp3Player);
             pool.submit(downloader);
         }
     }
@@ -63,6 +63,9 @@ public class Radio {
                     String switchUri = this.uris[currentUriIndex % uris.length];
                     this.switchChannel(switchUri);
                     currentUriIndex++;
+                case "quit":
+                    System.out.println("Buy!");
+                    System.exit(0);
             }
         }
     }

@@ -9,9 +9,9 @@ public class Main {
             String house = "http://pub4.di.fm/di_soulfulhouse";
             String psy = "http://pub6.di.fm/di_progressivepsy";
             Downloader downloader = new Downloader(trance, file);
-            Player player = new Player(file);
+            Mp3Player mp3Player = new Mp3Player(file);
 
-            Radio radio = new Radio(downloader,player);
+            Radio radio = new Radio(downloader, mp3Player);
 
             radio.control();
 
