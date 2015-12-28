@@ -8,21 +8,14 @@
     <artifactId>radio</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <repositories>
-        <repository>
-            <id>jacko_repo</id>
-            <name>jacko_repo</name>
-            <url>file://${basedir}/libs</url>
-        </repository>
-    </repositories>
+
     <dependencies>
         <dependency>
-            <groupId>jaco</groupId>
-            <artifactId>jacoMP3player</artifactId>
-            <version>1.0</version>
+            <groupId>com.mpatric</groupId>
+            <artifactId>mp3agic</artifactId>
+            <version>0.8.3</version>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>radio</finalName>
         <plugins>

@@ -21,7 +21,7 @@ public class Downloader implements Runnable {
     public void continueDownloading() throws IOException {
         InputStream inputStream = new URL(resourceUri).openStream();
         FileOutputStream fileOutputStream = new FileOutputStream(file, true);
-        byte[] buffer = new byte[BUFFER_SIZE*100];
+        byte[] buffer = new byte[BUFFER_SIZE * 100];
         int len;
         while ((len = inputStream.read(buffer)) != -1) {
             fileOutputStream.write(buffer, 0, len);
@@ -32,7 +32,7 @@ public class Downloader implements Runnable {
         InputStream inputStream = new URL(resourceUri).openStream();
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         byte[] buffer = new byte[BUFFER_SIZE];
-        for (int i = 0; i < BUFFER_SIZE*10; i += inputStream.read(buffer)) {
+        for (int i = 0; i < BUFFER_SIZE * 10; i += inputStream.read(buffer)) {
             fileOutputStream.write(buffer);
         }
         return true;

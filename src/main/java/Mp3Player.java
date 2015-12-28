@@ -14,19 +14,18 @@ public class Mp3Player implements Runnable {
 
     public void play() {
         try {
-            FileInputStream fis     = new FileInputStream("di.mp3");
+            FileInputStream fis = new FileInputStream("di.mp3");
             BufferedInputStream bis = new BufferedInputStream(fis);
             player = new Player(bis);
-            player.play(0);
-        }
-        catch (Exception e) {
+            player.play();
+        } catch (Exception e) {
             System.out.println("Problem playing file " + file.getName());
         }
     }
 
     public void stopPlaying() {
-        this.file.delete();
         this.player.close();
+        this.file.delete();
     }
 
     @Override

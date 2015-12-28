@@ -8,7 +8,7 @@ public class Main {
             String trance = "http://pub6.di.fm/di_trance";
             String house = "http://pub4.di.fm/di_soulfulhouse";
             String psy = "http://pub6.di.fm/di_progressivepsy";
-            Downloader downloader = new Downloader(trance, file);
+            Downloader downloader = new Downloader(psy, file);
             Mp3Player mp3Player = new Mp3Player(file);
 
             Radio radio = new Radio(downloader, mp3Player);

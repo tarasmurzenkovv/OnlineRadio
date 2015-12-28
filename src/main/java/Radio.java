@@ -32,13 +32,13 @@ public class Radio {
             e.printStackTrace();
         }
         if (hasFinished) {
-            pool.submit(mp3Player);
-            pool.submit(downloader);
+            this.pool.submit(mp3Player);
+            this.pool.submit(downloader);
         }
     }
 
     private void switchChannel(String newChannelUri) {
-        downloader.setResourceUri(newChannelUri);
+        this.downloader.setResourceUri(newChannelUri);
         this.stopPlaying();
         this.play();
     }
